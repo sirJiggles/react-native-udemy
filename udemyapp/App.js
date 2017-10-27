@@ -7,5 +7,5 @@ const App = () => {
   )
 }
 
-// register the app component
-ReactNative.AppRegistry.registerComponent('albums', () => app)
+// export the component
+export default App
