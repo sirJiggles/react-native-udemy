@@ -1,11 +1,14 @@
-import React from 'react';
-import { Text } from 'react-native';
+import React from 'react'
+import { Text, View } from 'react-native'
+import Header from './src/components/Header'
 
 const App = () => {
   return (
-    <Text>Some text</Text>
+    <View>
+      <Header />
+      <Text>Some text</Text>
+    </View>
   )
 }
 
-// export the component
 export default App
