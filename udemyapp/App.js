@@ -5,7 +5,7 @@ import Header from './src/components/Header'
 const App = () => {
   return (
     <View>
-      <Header />
+      <Header headerText='Gareth rocks' />
     </View>
   )
 }

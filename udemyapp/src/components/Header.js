@@ -1,14 +1,19 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Text, StyleSheet, View } from 'react-native'
 
-const Header = () => {
+const Header = (props) => {
   const { textStyle, viewStyle } = styles
 
   return (
     <View style={viewStyle}>
-      <Text style={textStyle}>Albums!</Text>
+      <Text style={textStyle}>{props.headerText}</Text>
     </View>
   )
+}
+
+Header.propTypes = {
+  headerText: PropTypes.string
 }
 
 const styles = StyleSheet.create({
@@ -23,7 +28,9 @@ const styles = StyleSheet.create({
     height: 60,
     shadowColor: 'black',
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2
+    shadowOpacity: 0.2,
+    elevation: 2,
+    position: 'relative'
   }
 })
 
