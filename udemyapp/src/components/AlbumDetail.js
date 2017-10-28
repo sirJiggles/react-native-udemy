@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import AlbumInterface from '../interfaces/Album'
 import { Text } from 'react-native'
 import Card from './Card'
 
@@ -13,9 +13,7 @@ const AlbumDetail = (props) => {
 
 // Prop validaltion
 AlbumDetail.propTypes = {
-  album: PropTypes.shape({
-    title: PropTypes.string
-  })
+  album: AlbumInterface
 }
 
 export default AlbumDetail

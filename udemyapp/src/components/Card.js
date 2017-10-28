@@ -1,15 +1,21 @@
 import React from 'react'
 import { View, StyleSheet } from 'react-native'
+import PropTypes from 'prop-types'
 
 // Shwing a card, looks nic and wraps another component
 // this is normal for react native
 // where we make a component for styling only
-const Card = () => {
+const Card = (props) => {
   return (
     <View style={styles.containerStyles}>
-
+      {props.children}
     </View>
   )
+}
+
+// Prop validaltion
+Card.propTypes = {
+  children: PropTypes.object
 }
 
 const styles = StyleSheet.create({
