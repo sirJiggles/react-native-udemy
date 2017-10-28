@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { View, Text } from 'react-native'
+import { View } from 'react-native'
+import AlbumDetail from './AlbumDetail'
 
 class AlbumList extends Component {
   // initial sate for the component
@@ -20,7 +21,10 @@ class AlbumList extends Component {
   }
 
   renderAlbulms() {
-    return this.state.albums.map(album => <Text key={album.title}>{album.title}</Text>)
+    // pass the album via props to the albulm details
+    return this.state.albums.map(album =>
+      <AlbumDetail album={album} key={album.title} />
+    )
   }
 
   render() {
