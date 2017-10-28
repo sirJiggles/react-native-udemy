@@ -1,12 +1,12 @@
 import React from 'react'
 import AlbumInterface from '../interfaces/Album'
-import { Text, View, Image, StyleSheet } from 'react-native'
+import { Text, View, Image, StyleSheet, Linking } from 'react-native'
 import Card from './Card'
 import CardSection from './CardSection'
 import Button from './Button'
 
 const AlbumDetail = ( { album }) => {
-  const { title, artist, thumbnail_image, image } = album
+  const { title, artist, thumbnail_image, image, url } = album
 
   return (
     <Card>
@@ -24,7 +24,7 @@ const AlbumDetail = ( { album }) => {
         <Image source={{uri: image}} style={styles.albulmCover} />
       </CardSection>
       <CardSection>
-        <Button onPress={() => console.log('on press!')}/>
+        <Button onPress={() => Linking.openURL(url)}/>
       </CardSection>
     </Card>
   )
