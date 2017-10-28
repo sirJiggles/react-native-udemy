@@ -24,7 +24,9 @@ const AlbumDetail = ( { album }) => {
         <Image source={{uri: image}} style={styles.albulmCover} />
       </CardSection>
       <CardSection>
-        <Button onPress={() => Linking.openURL(url)}/>
+        <Button onPress={() => Linking.openURL(url)}>
+          Shake it out
+        </Button>
       </CardSection>
     </Card>
   )

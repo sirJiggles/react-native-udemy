@@ -2,16 +2,19 @@ import React from 'react'
 import { Text, TouchableOpacity, StyleSheet } from 'react-native'
 import PropTypes from 'prop-types'
 
-const Button = ({ onPress }) => {
+const Button = ({ onPress, children }) => {
   return (
     <TouchableOpacity style={styles.button} onPress={onPress}>
-      <Text style={styles.buttonText}>Click Me</Text>
+      <Text style={styles.buttonText}>
+        {children}
+      </Text>
     </TouchableOpacity>
   )
 }
 
 Button.propTypes = {
-  onPress: PropTypes.func
+  onPress: PropTypes.func,
+  children: PropTypes.string
 }
 
 const styles = StyleSheet.create({
