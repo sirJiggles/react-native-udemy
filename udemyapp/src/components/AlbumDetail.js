@@ -3,6 +3,7 @@ import AlbumInterface from '../interfaces/Album'
 import { Text, View, Image, StyleSheet } from 'react-native'
 import Card from './Card'
 import CardSection from './CardSection'
+import Button from './Button'
 
 const AlbumDetail = ( { album }) => {
   const { title, artist, thumbnail_image, image } = album
@@ -21,6 +22,9 @@ const AlbumDetail = ( { album }) => {
       </CardSection>
       <CardSection>
         <Image source={{uri: image}} style={styles.albulmCover} />
+      </CardSection>
+      <CardSection>
+        <Button />
       </CardSection>
     </Card>
   )

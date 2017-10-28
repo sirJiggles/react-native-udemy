@@ -5,7 +5,8 @@ import AlbumList from './src/components/AlbumList'
 
 const App = () => {
   return (
-    <View>
+    // This little fix gives the root view 100% height ...
+    <View style={{flex:1}}>
       <Header headerText='Albums' />
       <AlbumList />
     </View>
