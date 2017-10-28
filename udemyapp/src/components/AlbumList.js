@@ -13,9 +13,6 @@ class AlbumList extends Component {
     fetch('https://rallycoding.herokuapp.com/api/music_albums')
       .then(response => response.json())
       .then((json) => {
-        console.log('------------------------------------');
-        console.log(json);
-        console.log('------------------------------------');
         // tell the state to update with our albulm list
         this.setState({
           albums: json

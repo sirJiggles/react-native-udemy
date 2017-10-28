@@ -5,12 +5,15 @@ import PropTypes from 'prop-types'
 // as will just present info we use a functional component here
 const CardSection = (props) => {
   return (
-    <View style={styles.containerStyle}>{props.children}</View>
+    <View style={styles.containerStyle}>
+      {props.children}
+    </View>
   )
 }
 // Prop validaltion
 CardSection.propTypes = {
-  children: PropTypes.object
+  // array of objects aka JSX tags
+  children: PropTypes.array
 }
 
 const styles = StyleSheet.create({
