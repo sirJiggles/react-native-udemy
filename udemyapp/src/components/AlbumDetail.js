@@ -5,19 +5,22 @@ import Card from './Card'
 import CardSection from './CardSection'
 
 const AlbumDetail = ( { album }) => {
-  const { title, artist, thumbnail_image } = album
+  const { title, artist, thumbnail_image, image } = album
 
   return (
     <Card>
       <CardSection>
-        <View>
+        <View style={styles.thumbailContainer}>
           {/* Images need a height and width! */}
           <Image source={{ uri: thumbnail_image}} style={styles.thumbail} />
         </View>
         <View style={styles.headerTextWrapper}>
-          <Text>{title}</Text>
+          <Text style={styles.trackTitle}>{title}</Text>
           <Text>{artist}</Text>
         </View>
+      </CardSection>
+      <CardSection>
+        <Image source={{uri: image}} style={styles.albulmCover} />
       </CardSection>
     </Card>
   )
@@ -33,9 +36,25 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'space-around'
   },
+  trackTitle: {
+    fontSize: 18
+  },
+  thumbailContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginLeft: 10,
+    marginRight: 10
+  },
   thumbail: {
     width: 50,
     height: 50
+  },
+  // a way of doing 100% image, BUT can also pass 100% as a string ..
+  // teacher did not mention this :)
+  albulmCover: {
+    flex: 1,
+    width: null,
+    height: 300
   }
 })
 
