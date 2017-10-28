@@ -24,7 +24,7 @@ const AlbumDetail = ( { album }) => {
         <Image source={{uri: image}} style={styles.albulmCover} />
       </CardSection>
       <CardSection>
-        <Button />
+        <Button onPress={() => console.log('on press!')}/>
       </CardSection>
     </Card>
   )

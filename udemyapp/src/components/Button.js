@@ -1,12 +1,17 @@
 import React from 'react'
 import { Text, TouchableOpacity, StyleSheet } from 'react-native'
+import PropTypes from 'prop-types'
 
-const Button = () => {
+const Button = ({ onPress }) => {
   return (
-    <TouchableOpacity style={styles.button}>
+    <TouchableOpacity style={styles.button} onPress={onPress}>
       <Text style={styles.buttonText}>Click Me</Text>
     </TouchableOpacity>
   )
+}
+
+Button.propTypes = {
+  onPress: PropTypes.func
 }
 
 const styles = StyleSheet.create({
