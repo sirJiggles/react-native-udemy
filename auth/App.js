@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import firebase from 'firebase'
 import { View } from 'react-native';
 import { Header } from './src/components/common'
+import LoginForm from './src/components/LoginForm'
 
 export default class App extends Component {
   componentWillMount() {
@@ -20,6 +21,7 @@ export default class App extends Component {
     return (
       <View>
         <Header headerText='React native rocks!'/>
+        <LoginForm />
       </View>
     );
   }
