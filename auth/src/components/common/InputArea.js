@@ -2,13 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { TextInput, View, Text, StyleSheet } from 'react-native'
 
-const InputArea = ({ label, value, onChangeText, placeholder }) => {
+const InputArea = ({ label, value, onChangeText, placeholder, secure }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.labelStyle}>
         {label}
       </Text>
       <TextInput
+        secureTextEntry={ secure }
         placeholder={ placeholder }
         autoCorrect={false}
         style={styles.formInput}
@@ -19,11 +20,13 @@ const InputArea = ({ label, value, onChangeText, placeholder }) => {
   )
 }
 
+// Prop Validation
 InputArea.propTypes = {
   label: PropTypes.string,
   value: PropTypes.string,
   placeholder: PropTypes.string,
-  onChangeText: PropTypes.func
+  onChangeText: PropTypes.func,
+  secure: PropTypes.bool
 }
 
 export { InputArea }

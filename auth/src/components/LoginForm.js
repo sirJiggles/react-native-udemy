@@ -14,7 +14,7 @@ export default class LoginForm extends Component {
           <InputArea
             label='Email'
             placeholder='email@example.com'
-            onChangeText={(email) => this.setState({email})}
+            onChangeText={email => this.setState({email})}
             value={this.state.email}
           />
         </CardSection>
@@ -22,7 +22,8 @@ export default class LoginForm extends Component {
           <InputArea
             label='Password'
             placeholder=''
-            onChangeText={(password) => this.setState({password})}
+            secure={true}
+            onChangeText={password => this.setState({password})}
             value={this.state.password}
           />
         </CardSection>
