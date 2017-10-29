@@ -2,13 +2,15 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { TextInput, View, Text, StyleSheet } from 'react-native'
 
-const InputArea = ({ label, value, onChangeText }) => {
+const InputArea = ({ label, value, onChangeText, placeholder }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.labelStyle}>
         {label}
       </Text>
       <TextInput
+        placeholder={ placeholder }
+        autoCorrect={false}
         style={styles.formInput}
         value={value}
         onChangeText={onChangeText}
@@ -20,6 +22,7 @@ const InputArea = ({ label, value, onChangeText }) => {
 InputArea.propTypes = {
   label: PropTypes.string,
   value: PropTypes.string,
+  placeholder: PropTypes.string,
   onChangeText: PropTypes.func
 }
 
@@ -28,7 +31,6 @@ export { InputArea }
 
 const styles = StyleSheet.create({
   formInput: {
-    width: '100%',
     height: 30,
     color: '#000',
     paddingRight: 5,
