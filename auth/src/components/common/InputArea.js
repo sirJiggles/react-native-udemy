@@ -9,8 +9,8 @@ const InputArea = ({ label, value, onChangeText, placeholder, secure }) => {
         {label}
       </Text>
       <TextInput
-        secureTextEntry={ secure }
-        placeholder={ placeholder }
+        secureTextEntry={secure}
+        placeholder={placeholder}
         autoCorrect={false}
         style={styles.formInput}
         value={value}
