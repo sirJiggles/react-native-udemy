@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { TextInput, StyleSheet } from 'react-native'
-import { Card, Button, CardSection } from './common'
+import { Card, Button, CardSection, InputArea } from './common'
 
 export default class LoginForm extends Component {
   state = {
@@ -11,16 +10,13 @@ export default class LoginForm extends Component {
     return (
       <Card>
         <CardSection>
-          <TextInput
-            style={styles.formInput}
-            placeholder='Jhon Smith'
+          <InputArea
+            label='something'
+            onChangeText={(text) => this.setState({text})}
             value={this.state.text}
-            onChangeText={(text) => this.setState({ text })}
           />
         </CardSection>
-        <CardSection>
-
-        </CardSection>
+        <CardSection></CardSection>
         <CardSection>
           <Button>Login</Button>
         </CardSection>
@@ -28,10 +24,3 @@ export default class LoginForm extends Component {
     )
   }
 }
-
-const styles = StyleSheet.create({
-  formInput: {
-    width: '100%',
-    height: 30
-  }
-})
