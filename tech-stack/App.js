@@ -1,12 +1,17 @@
-import { AppRegistry } from 'react-native'
-import React from 'react';
-import { View, Text } from 'react-native';
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
+import React from 'react'
+import { AppRegistry, View, Text } from 'react-native'
+import reducers from './src/reducers'
+
 
 const App = () => {
   return (
-    <View>
-      <Text>Hello</Text>
-    </View>
+    <Provider store={createStore(reducers)}>
+      <View>
+        <Text>Hello Redux</Text>
+      </View>
+    </Provider>
   )
 }
 
