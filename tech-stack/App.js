@@ -3,13 +3,17 @@ import { createStore } from 'redux'
 import React from 'react'
 import { AppRegistry, View, Text } from 'react-native'
 import reducers from './src/reducers'
+import { Header } from './src/components/common'
 
 
 const App = () => {
   return (
     <Provider store={createStore(reducers)}>
       <View>
-        <Text>Hello Redux</Text>
+        <Header headerText="Gareth rocks!"/>
+        <View>
+          <Text>Hello Redux</Text>
+        </View>
       </View>
     </Provider>
   )
