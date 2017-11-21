@@ -11,9 +11,9 @@ class ListItem extends Component {
 
   // helper func for the description
   renderDescr() {
-    const { library, selectedLibId } = this.props
+    const { library, expanded } = this.props
 
-    if (selectedLibId === library.id) {
+    if (expanded) {
       return (
         <Text>{library.description}</Text>
       )
@@ -48,8 +48,14 @@ const styles = StyleSheet.create({
   }
 })
 
-const mapStateToProps = state => {
-  return { selectedLibId: state.selectedLibId }
+// own props is the porps passed ot the component
+const mapStateToProps = (state, ownProps) => {
+  // doing logic / pre calculation here rather than in the component, we
+  // can do things that might make the component more dirty like doing conditional checks on props
+  const expanded = state.selectedLibId === ownProps.library.id
+
+  // as key and value the same no need for prop, is same as {expanded: expanded}
+  return { expanded }
 }
 
 // as no map state to props we pass null for 1st arg,
