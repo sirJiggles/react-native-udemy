@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { CardSection } from './common/CardSection'
-import { StyleSheet, Text } from 'react-native'
+import { StyleSheet, Text, TouchableWithoutFeedback, View } from 'react-native'
 import { connect } from 'react-redux'
 // * as actions, means import all of the things from the file
 // so for example we do not export default from the actions index file
@@ -8,15 +8,21 @@ import { connect } from 'react-redux'
 import * as actions from '../actions'
 
 class ListItem extends Component {
-  render({ title } = this.props.library) {
+  render({ library, selectLibrary } = this.props) {
     const { titleStyles } = styles
 
     return (
-      <CardSection>
-        <Text style={titleStyles}>
-          {title}
-        </Text>
-      </CardSection>
+      <TouchableWithoutFeedback
+        onPress={() => selectLibrary(library.id)}
+      >
+        <View>
+          <CardSection>
+            <Text style={titleStyles}>
+              {library.title}
+            </Text>
+          </CardSection>
+        </View>
+      </TouchableWithoutFeedback>
     )
   }
 }
