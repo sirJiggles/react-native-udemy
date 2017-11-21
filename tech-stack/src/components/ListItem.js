@@ -8,8 +8,21 @@ import { connect } from 'react-redux'
 import * as actions from '../actions'
 
 class ListItem extends Component {
-  render({ library, selectLibrary } = this.props) {
+
+  // helper func for the description
+  renderDescr() {
+    const { library, selectedLibId } = this.props
+
+    if (selectedLibId === library.id) {
+      return (
+        <Text>{library.description}</Text>
+      )
+    }
+  }
+
+  render() {
     const { titleStyles } = styles
+    const { library, selectLibrary } = this.props
 
     return (
       <TouchableWithoutFeedback
@@ -21,6 +34,7 @@ class ListItem extends Component {
               {library.title}
             </Text>
           </CardSection>
+          {this.renderDescr()}
         </View>
       </TouchableWithoutFeedback>
     )
@@ -34,8 +48,12 @@ const styles = StyleSheet.create({
   }
 })
 
+const mapStateToProps = state => {
+  return { selectedLibId: state.selectedLibId }
+}
+
 // as no map state to props we pass null for 1st arg,
 // 2nd arg is the actions, it creates the actions from dum functions into something majical
 // where, when called the action will be dispatched to the redux store
 // annnnnd will pass all the actions to the component as props.
-export default connect(null, actions)(ListItem)
+export default connect(mapStateToProps, actions)(ListItem)
