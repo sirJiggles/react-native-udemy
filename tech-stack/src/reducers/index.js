@@ -1,7 +1,9 @@
 import { combineReducers } from 'redux'
 import Library from './Library'
+import Selection from './Selection'
 
 
 export default combineReducers({
-  libraries: Library
+  libraries: Library,
+  selectedLibId: Selection
 })
