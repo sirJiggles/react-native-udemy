@@ -1,6 +1,12 @@
 import React, { Component } from 'react'
 import { CardSection } from './common/CardSection'
-import { StyleSheet, Text, TouchableWithoutFeedback, View } from 'react-native'
+import {
+  StyleSheet,
+  Text,
+  TouchableWithoutFeedback,
+  View,
+  LayoutAnimation
+} from 'react-native'
 import { connect } from 'react-redux'
 // * as actions, means import all of the things from the file
 // so for example we do not export default from the actions index file
@@ -9,13 +15,39 @@ import * as actions from '../actions'
 
 class ListItem extends Component {
 
+  // this is also how you create your own animation
+  slideTransition = {
+    duration: 200,
+    // you can ommit create and update if not needed, just was playing
+    create: {
+      type: LayoutAnimation.Types.linear,
+      property: LayoutAnimation.Properties.opacity,
+    },
+    update: {
+      type: LayoutAnimation.Types.easeInEaseOut,
+      property: LayoutAnimation.Properties.opacity
+    },
+    delete: {
+      type: LayoutAnimation.Types.linear,
+      property: LayoutAnimation.Properties.opacity
+    }
+  }
+
+  componentWillUpdate() {
+    // if we call this any time before the update takes place, like when we update the props
+    // LayoutAnimation.linear()
+    LayoutAnimation.configureNext(this.slideTransition)
+  }
+
   // helper func for the description
   renderDescr() {
     const { library, expanded } = this.props
 
     if (expanded) {
       return (
-        <Text>{library.description}</Text>
+        <CardSection>
+          <Text>{library.description}</Text>
+        </CardSection>
       )
     }
   }
