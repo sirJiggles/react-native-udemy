@@ -4,6 +4,7 @@ import React from 'react'
 import { AppRegistry, View, Text } from 'react-native'
 import reducers from './src/reducers'
 import { Header } from './src/components/common'
+import LibraryList from './src/components/LibraryList'
 
 
 const App = () => {
@@ -12,6 +13,7 @@ const App = () => {
       <View>
         <Header headerText="Gareth rocks!"/>
         <View>
+          <LibraryList />
           <Text>Hello Redux</Text>
         </View>
       </View>
