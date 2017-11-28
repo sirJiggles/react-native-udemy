@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import { View, Text, AppRegistry } from 'react-native'
-import reducers from './src/reducers/index.js'
+import reducers from './src/reducers'
 import firebase from 'firebase'
 
 class App extends Component {
