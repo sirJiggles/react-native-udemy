@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
-import { View, Text, AppRegistry } from 'react-native'
+import { AppRegistry } from 'react-native'
 import reducers from './src/reducers'
 import firebase from 'firebase'
 import LoginForm from './src/components/LoginForm'

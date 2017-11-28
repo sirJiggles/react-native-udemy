@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux'
+import Auth from './Auth'
 
 export default combineReducers({
-  // sample
-  bannana: () => []
+  // auth state is made by Auth reducer
+  auth: Auth
 })
