@@ -8,3 +8,9 @@ export const selectLibrary = (libraryId) => {
     payload: libraryId
   }
 }
+
+export const doSometing = () => {
+  return {
+    this: 'that'
+  }
+}

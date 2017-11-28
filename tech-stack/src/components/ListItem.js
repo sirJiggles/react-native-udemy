@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { CardSection } from './common/CardSection'
+import { CardSection } from './common'
 import {
   StyleSheet,
   Text,
@@ -28,8 +28,8 @@ class ListItem extends Component {
       property: LayoutAnimation.Properties.opacity
     },
     delete: {
-      type: LayoutAnimation.Types.linear,
-      property: LayoutAnimation.Properties.opacity
+      type: LayoutAnimation.Types.opacity,
+      property: LayoutAnimation.Properties.scaleXY
     }
   }
 
