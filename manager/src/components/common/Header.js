@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Text, StyleSheet, View } from 'react-native'
+import { ifIphoneX } from 'react-native-iphone-x-helper'
 
 const Header = (props) => {
   const { textStyle, viewStyle } = styles
@@ -24,8 +25,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#F8F8F8',
     justifyContent: 'center',
     alignItems: 'center',
-    paddingTop: 15,
-    height: 60,
+    ...ifIphoneX({
+        paddingTop: 40,
+        height: 100
+    }, {
+        paddingTop: 20,
+        height: 60
+    }),
     shadowColor: 'black',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,

@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
-import { AppRegistry } from 'react-native'
+import { AppRegistry, View } from 'react-native'
 import reducers from './src/reducers'
 import firebase from 'firebase'
 import LoginForm from './src/components/LoginForm'
+import { Header } from './src/components/common'
 
 class App extends Component {
 
@@ -24,7 +25,10 @@ class App extends Component {
   render() {
     return (
       <Provider store={createStore(reducers)}>
-        <LoginForm />
+        <View>
+          <Header headerText="Gareth Rocks" />
+          <LoginForm />
+        </View>
       </Provider>
     )
   }
