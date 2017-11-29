@@ -7,3 +7,10 @@ export const emailChanged = (text: String) => {
     payload: text
   }
 }
+
+export const passwordChanged = (text: String) => {
+  return {
+    type: ActionNames.passwordChanged,
+    payload: text
+  }
+}

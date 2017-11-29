@@ -1,5 +1,6 @@
 // kind of an enum
 
 export default {
-  emailChanged: 'email-changed'
+  emailChanged: 'email-changed',
+  passwordChanged: 'password-changed'
 }
