@@ -1,4 +1,4 @@
-import ActionNames from '../enums/actionNames'
+import ActionNames from '../enums/actions'
 
 const INITIAL_STATE = {
   email: ''
