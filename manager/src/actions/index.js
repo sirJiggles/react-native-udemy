@@ -16,6 +16,23 @@ export const passwordChanged = (text: String) => {
   }
 }
 
+
+// helper func for the login user action
+const loginUserSuccess = (dispatch: Function, user: {email: String, password: String}) => {
+  // NOW we will manually dispatch the action, yipie
+  dispatch({
+    type: ActionNames.loginUserSuccess,
+    payload: user
+  })
+}
+
+// helper func for the failed case
+const loginUserFailed = (dispatch: Function) => {
+  dispatch({
+    type: ActionNames.loginUserFailed
+  })
+}
+
 export const loginUser = ({email, password}: {email: String, password: String}) => {
   // the dispatch here is redux thunk
   // basically we now return a func form the action creator
@@ -23,16 +40,13 @@ export const loginUser = ({email, password}: {email: String, password: String}) 
   // then we wait, wait, wait and when we are in the then. we will MANUALY
   // dispatch the action. this is noted in the body of the then below
   return (dispatch) => {
-    firebase.auth().signInWithEmailAndPassword(email, password).then((user) => {
-      // NOW we will manually dispatch the action, yipie
-      dispatch(
-        {
-          type: ActionNames.loginUserSuccess,
-          payload: user
-        }
-      )
-    }).catch((err) => {
-      console.log(err);
-    })
+    firebase.auth().signInWithEmailAndPassword(email, password)
+      .then(user => loginUserSuccess(dispatch, user))
+      .catch(() => {
+        // user must need a new account :D
+        firebase.auth().createUserWithEmailAndPassword(email, password)
+          .then(user => loginUserSuccess(dispatch, user))
+          .catch(() => loginUserFailed(dispatch))
+      })
   }
 }
