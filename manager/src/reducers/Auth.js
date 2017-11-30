@@ -23,7 +23,7 @@ export default (state = INITIAL_STATE, action: {type: String, payload: any}) => 
       }
     case ActionNames.loginUserSuccess:
       return {
-        ...state, user: action.payload
+        ...state, user: action.payload, error: ''
       }
     case ActionNames.loginUserFailed:
       // show the error AND reset the password ;)
