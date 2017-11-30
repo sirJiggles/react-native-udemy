@@ -3,7 +3,8 @@ import ActionNames from '../enums/actions'
 const INITIAL_STATE = {
   email: '',
   password: '',
-  user: null
+  user: null,
+  error: ''
 }
 
 // default is null for state as we can NEVER have undefined for state
@@ -26,7 +27,7 @@ export default (state = INITIAL_STATE, action: {type: String, payload: any}) => 
       }
     case ActionNames.loginUserFailed:
       return {
-
+        ...state, error: action.payload
       }
     default:
       return state

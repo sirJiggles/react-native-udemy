@@ -27,9 +27,10 @@ const loginUserSuccess = (dispatch: Function, user: {email: String, password: St
 }
 
 // helper func for the failed case
-const loginUserFailed = (dispatch: Function) => {
+const loginUserFailed = (dispatch: Function, err: String) => {
   dispatch({
-    type: ActionNames.loginUserFailed
+    type: ActionNames.loginUserFailed,
+    payload: err
   })
 }
 
@@ -46,7 +47,7 @@ export const loginUser = ({email, password}: {email: String, password: String}) 
         // user must need a new account :D
         firebase.auth().createUserWithEmailAndPassword(email, password)
           .then(user => loginUserSuccess(dispatch, user))
-          .catch(() => loginUserFailed(dispatch))
+          .catch((err) => loginUserFailed(dispatch, err.message))
       })
   }
 }
