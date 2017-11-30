@@ -17,9 +17,22 @@ export const passwordChanged = (text: String) => {
 }
 
 export const loginUser = ({email, password}: {email: String, password: String}) => {
-  firebase.auth().signInWithEmailAndPassword(email, password).then((user) => {
-    console.log(user);
-  }).catch((err) => {
-    console.log(err);
-  })
+  // the dispatch here is redux thunk
+  // basically we now return a func form the action creator
+  // reduc thunk fires, calls the func right away, do the login right away
+  // then we wait, wait, wait and when we are in the then. we will MANUALY
+  // dispatch the action. this is noted in the body of the then below
+  return (dispatch) => {
+    firebase.auth().signInWithEmailAndPassword(email, password).then((user) => {
+      // NOW we will manually dispatch the action, yipie
+      dispatch(
+        {
+          type: ActionNames.loginUserSuccess,
+          payload: user
+        }
+      )
+    }).catch((err) => {
+      console.log(err);
+    })
+  }
 }

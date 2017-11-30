@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
 import { AppRegistry, View } from 'react-native'
 import reducers from './src/reducers'
 import firebase from 'firebase'
 import LoginForm from './src/components/LoginForm'
 import { Header } from './src/components/common'
+import ReduxThunk from 'redux-thunk'
 
 class App extends Component {
 
@@ -24,7 +25,10 @@ class App extends Component {
 
   render() {
     return (
-      <Provider store={createStore(reducers)}>
+      // Apply middleware is how we hook up reduc thunk
+      // 2nd arg is for any intial state we want to send to redux
+      // mainly this is for server side rendering ;)
+      <Provider store={createStore(reducers, {}, applyMiddleware(ReduxThunk))}>
         <View>
           <Header headerText="Gareth Rocks" />
           <LoginForm />

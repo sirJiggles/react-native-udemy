@@ -19,6 +19,10 @@ export default (state = INITIAL_STATE, action: {type: String, payload: any}) => 
       return {
         ...state, password: action.payload
       }
+    case ActionNames.loginUserSuccess:
+      return {
+        ...state, user: action.payload
+      }
     default:
       return state
   }
