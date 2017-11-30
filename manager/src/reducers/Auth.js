@@ -26,8 +26,9 @@ export default (state = INITIAL_STATE, action: {type: String, payload: any}) => 
         ...state, user: action.payload
       }
     case ActionNames.loginUserFailed:
+      // show the error AND reset the password ;)
       return {
-        ...state, error: action.payload
+        ...state, error: action.payload, password: ''
       }
     default:
       return state
