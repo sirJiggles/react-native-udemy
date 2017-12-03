@@ -41,6 +41,11 @@ export const loginUser = ({email, password}: {email: String, password: String}) 
   // then we wait, wait, wait and when we are in the then. we will MANUALY
   // dispatch the action. this is noted in the body of the then below
   return (dispatch) => {
+    // am about to log in the user
+    dispatch({
+      type: ActionNames.loginUser
+    })
+
     firebase.auth().signInWithEmailAndPassword(email, password)
       .then(user => loginUserSuccess(dispatch, user))
       .catch(() => {
