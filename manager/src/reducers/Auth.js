@@ -1,6 +1,6 @@
 import ActionNames from '../enums/actions'
 
-const INITIAL_STATE = {
+const initialState = {
   email: '',
   password: '',
   user: null,
@@ -9,7 +9,7 @@ const INITIAL_STATE = {
 }
 
 // default is null for state as we can NEVER have undefined for state
-export default (state = INITIAL_STATE, action: {type: String, payload: any}) => {
+export default (state = initialState, action: {type: String, payload: any}) => {
   switch (action.type) {
     case ActionNames.emailChanged:
       // make a new object do not modify!
@@ -22,12 +22,15 @@ export default (state = INITIAL_STATE, action: {type: String, payload: any}) => 
       return {
         ...state, password: action.payload, error: ''
       }
+    // reset everything
     case ActionNames.loginUserSuccess:
       return {
+        // take the inital state (future poofing)
         ...state,
-        user: action.payload,
-        error: '',
-        showSpinner: false
+        // reset all that we know
+        ...initialState,
+        // and on this all add user. bäm
+        user: action.payload
       }
     // flag for if logging in user
     case ActionNames.loginUser:
