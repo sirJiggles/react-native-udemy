@@ -1,5 +1,6 @@
 import ActionNames from '../enums/actions'
 import firebase from 'firebase'
+import { Actions } from 'react-native-router-flux'
 
 export const emailChanged = (text: String) => {
   // return our action
@@ -24,6 +25,11 @@ const loginUserSuccess = (dispatch: Function, user: {email: String, password: St
     type: ActionNames.loginUserSuccess,
     payload: user
   })
+
+  // Actions comes from react navigation lib. the func is the keyName on the Scene
+  // this is like Embers transition to ... but better
+  // gives us a nice back button. doesn't make sense here but is super duper helpful
+  Actions.employeeList()
 }
 
 // helper func for the failed case
