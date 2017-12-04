@@ -28,9 +28,7 @@ class App extends Component {
       // 2nd arg is for any intial state we want to send to redux
       // mainly this is for server side rendering ;)
       <Provider store={createStore(reducers, {}, applyMiddleware(ReduxThunk))}>
-        <View>
-          <Router />
-        </View>
+        <Router />
       </Provider>
     )
   }
