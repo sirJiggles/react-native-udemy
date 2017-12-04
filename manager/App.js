@@ -4,9 +4,8 @@ import { createStore, applyMiddleware } from 'redux'
 import { AppRegistry, View } from 'react-native'
 import reducers from './src/reducers'
 import firebase from 'firebase'
-import LoginForm from './src/components/LoginForm'
-import { Header } from './src/components/common'
 import ReduxThunk from 'redux-thunk'
+import Router from './src/Router'
 
 class App extends Component {
 
@@ -30,8 +29,7 @@ class App extends Component {
       // mainly this is for server side rendering ;)
       <Provider store={createStore(reducers, {}, applyMiddleware(ReduxThunk))}>
         <View>
-          <Header headerText="Gareth Rocks" />
-          <LoginForm />
+          <Router />
         </View>
       </Provider>
     )
