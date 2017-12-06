@@ -29,7 +29,7 @@ const loginUserSuccess = (dispatch: Function, user: {email: String, password: St
   // Actions comes from react navigation lib. the func is the keyName on the Scene
   // this is like Embers transition to ... but better
   // gives us a nice back button. doesn't make sense here but is super duper helpful
-  Actions.employeeList()
+  Actions.main()
 }
 
 // helper func for the failed case
