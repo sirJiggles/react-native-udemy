@@ -4,5 +4,6 @@ export default {
   passwordChanged: 'password-changed',
   loginUserSuccess: 'login-user-success',
   loginUserFailed: 'login-user-failed',
-  loginUser: 'login-user'
+  loginUser: 'login-user',
+  employeeUpdate: 'employee-update'
 }
