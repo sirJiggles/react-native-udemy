@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { Card, CardSection, InputArea, Button } from './common'
+import { connect } from 'react-redux'
+import { employeeUpdate } from '../actions'
 
 class EmployeeCreate extends Component {
   render() {
@@ -9,6 +11,8 @@ class EmployeeCreate extends Component {
           <InputArea
             label='name'
             placeholder='jane'
+            value={this.props.name}
+            onChangeText={value => this.props.employeeUpdate({prop:'name', value})}
           />
         </CardSection>
 
@@ -16,6 +20,8 @@ class EmployeeCreate extends Component {
           <InputArea
             label='phone'
             placeholder='55-555-555'
+            value={this.props.phone}
+            onChangeText={value => this.props.employeeUpdate({prop:'phone', value})}
           />
         </CardSection>
 
@@ -33,4 +39,10 @@ class EmployeeCreate extends Component {
   }
 }
 
-export default EmployeeCreate
+const mapStatesToProps = (state) => {
+  const { name, phone, shift } = state.employeeForm
+
+  return { name, phone, shift }
+}
+
+export default connect(mapStatesToProps, { employeeUpdate })(EmployeeCreate)

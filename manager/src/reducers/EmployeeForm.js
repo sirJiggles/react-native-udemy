@@ -6,8 +6,8 @@ const initialState = {
   shift: ''
 }
 
-export default (state: initialState, action: String) => {
-  switch (action) {
+export default (state = initialState, action: {type: String, payload: {prop: String, value: String}}) => {
+  switch (action.type) {
     case ActionNames.employeeUpdate:
       // action.payload looks like {prop: 'name', value: 'gareth'}
       return {
