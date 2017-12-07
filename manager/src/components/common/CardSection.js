@@ -4,7 +4,7 @@ import { View, StyleSheet } from 'react-native'
 // as will just present info we use a functional component here
 const CardSection = (props) => {
   return (
-    <View style={styles.containerStyle}>
+    <View style={[styles.containerStyle, props.style]}>
       {props.children}
     </View>
   )
